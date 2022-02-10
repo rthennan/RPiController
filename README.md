@@ -1,7 +1,8 @@
 # RPiController
 ## Control Relays connected to a RaspberryPi through a Browser
 
-### Demo:  [YouTube Video - Controlling multiple relays with Raspberry Pi through the browser](https://www.youtube.com/watch?v=Sh_ZcMt3kDU)  
+### Demo Video:  
+[![YouTube Video - Controlling multiple relays with Raspberry Pi through the browser](https://img.youtube.com/vi/Sh_ZcMt3kDU/0.jpg)](https://www.youtube.com/watch?v=Sh_ZcMt3kDU)
 
 Connect your Raspberry Pi GPIO pins to Relay Modules, host these files in your Raspberry Pi's webserver, and you can control the Relays from your smartphone/computer's browser.  
 Optionally, forward your RPi's webserver port to your Public IP and control the Relay from anywhere in the world. IoT Project done???  
@@ -25,7 +26,9 @@ Check the [pinAssign.txt](https://github.com/rthennan/RPiController/blob/main/pi
 
 ### Security:
 Credentials can be reset by running the pwordReset.sh file, from the site's root directory. Ensure this script has a permission of 700 or lesser.  
-Demonstration the password reset script:[YouTube Video - Running the password reset script for my Raspberry Pi relay controller](https://www.youtube.com/watch?v=dDFM9cjjSOY)  
+Demonstration the password reset script:  
+[![YouTube Video - Running the password reset script for my Raspberry Pi relay controller](https://img.youtube.com/vi/dDFM9cjjSOY/0.jpg)](https://www.youtube.com/watch?v=dDFM9cjjSOY)
+ 
 The credentials are hashed (one-way encryption) using PHP's [password_hash](https://www.php.net/manual/en/function.password-hash.php).  
 The hashed credentials are then stored to the tmpdir/creds.txt file (Relative path).  
 At login attempt, the entered credentials are matched with the hash values in the above file, using [password_verify](https://www.php.net/manual/en/function.password-verify.php).  While a one-way hash is hard to decrypt, it isn't exactly unbreakable.  
