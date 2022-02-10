@@ -134,7 +134,7 @@
     }
 	else if (isset($_POST['tripAll']))
     {
-		system("/home/pi/trip10.sh&");
+		system("bash trip10.sh&");
     }
 	
 ?>
