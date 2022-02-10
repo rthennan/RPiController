@@ -1,4 +1,6 @@
 #!/bin/bash
+#I know this script could have been much smaller if I had used variables to loop through all the pins since we are basically performing the same actions for all the pins listed.
+#But I hadn't thought of it when I had the Relay Modules with me. Since I cannot test the loop approach now, I haven't used it in this code. But feel free to do so.
 gpio -1 mode 8 out
 gpio -1 mode 10 out
 gpio -1 mode 12 out
