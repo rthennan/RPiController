@@ -2,19 +2,19 @@
 <?php
 #Username and password hash files
 $credsFile = 'tmpdir/creds.txt';
-$user = readline('Enter the username: ');
+$user = readline('Please enter the new username: ');
 
-#Hashing Username and storing it
-$userHash = password_hash($user, PASSWORD_DEFAULT);
-file_put_contents($credsFile, $userHash);
-file_put_contents($credsFile,PHP_EOL,FILE_APPEND);
-$pass = readline('Enter the password: ');
+$pass = readline('Please enter a new password that is longer than 4 characters: ');
 
 #Checking password length:
 while(strlen($pass) <5) {
   $pass = readline('Please Enter 5 or more characters for the Password: ');
 }
 
+#Hashing Username and storing it
+$userHash = password_hash($user, PASSWORD_DEFAULT);
+file_put_contents($credsFile, $userHash);
+file_put_contents($credsFile,PHP_EOL,FILE_APPEND);
 
 #Hashing the password and storing it
 $passHash = password_hash($pass, PASSWORD_DEFAULT);
