@@ -35,9 +35,23 @@
 		fwrite($fp,date('Y-m-d H:i:s', time()));
 			fwrite($fp,"\t remote IP => \t");
 			fwrite($fp,$ipaddress);
-		fwrite($fp,"\t Force Shutdown attempted. \n");
+		fwrite($fp,"\t Force Reboot attempted. \n");
 		fclose($fp);
     }
+    else if (isset($_POST['sdown']))
+    {
+		system("gpio -1 mode 8 out");
+		system("gpio -1 write 8 0");
+		sleep(10);
+		system("gpio -1 write 8 1");	
+		
+		$fp = fopen('/home/pi/gpioPass/ctrlLogs.log', 'a');//opens file in append mode
+		fwrite($fp,date('Y-m-d H:i:s', time()));
+			fwrite($fp,"\t remote IP => \t");
+			fwrite($fp,$ipaddress);
+		fwrite($fp,"\t Force Shutdown attempted. \n");
+		fclose($fp);
+    }	
     else if (isset($_POST['rly1On']))
     {
 		system("gpio -1 mode 8 out");
@@ -138,7 +152,7 @@
 	<h1>Main Machine</h1>
 		<button class="button button-1" name="pwr">Power</button>
 		<button class="button button-3" name="frc">Reboot</button>
-		<button class="button button-2" name="frc">ShutDown</button>		
+		<button class="button button-2" name="sdown">ShutDown</button>		
 	<h1>Relay Direct Control</h1>
 		<button class="button button-1-sm" name="rly1On">1</button>
 		<button class="button button-2-sm" name="rly1Off">1</button>	
